@@ -6,8 +6,26 @@ const graph = {
     'D' : ['E']
 }
 
+const dfsRecursive = (graph, start) => {
+  const result = []
+
+  const recursiveDfsHelper = (vert) => {
+    result.push(vert)
+
+    if (graph[vert]?.length > 0) {
+      for (const neighbor of graph[vert]) {
+        if (!result.includes(neighbor)) recursiveDfsHelper(neighbor)
+      }
+    }
+  }
+
+  recursiveDfsHelper(start)
+
+  return result
+}
+
 const dfs = (graph, start) => {
-    const visited = [];
+    const result = [];
     let needVisit = [];
   
     needVisit.push(start);
@@ -15,14 +33,15 @@ const dfs = (graph, start) => {
     while(needVisit.length !== 0) {
       let node = needVisit.shift();
 
-      if(!visited.includes(node)){
-        visited.push(node);
+      if(!result.includes(node)){
+        result.push(node);
         
         needVisit = [...(graph[node] || []), ...needVisit]
       }
     }
 
-    return visited.join(' ');
+    return result;
 }
 
 console.log(dfs(graph, 'A'))
+console.log(dfsRecursive(graph, 'A'))
