@@ -102,13 +102,13 @@ class CombatAnimal extends Animal implements Combatant {
     super(amountToEat, speed)
   }
 
-  takeDamage(damage: Damage): void {
+  public takeDamage(damage: Damage): void {
       if (this.armor.isPenetrated(damage)) {
         this.hp -= damage.value
       }
   }
 
-  attack(target: Combatant): void {
+  public attack(target: Combatant): void {
       target.takeDamage(this.attackDamage)
   }
 }
@@ -118,7 +118,7 @@ class Prey extends Animal implements Edible {
     super(amountToEat, speed);
   }
 
-  beEaten(hpAmount: number) {
+  public beEaten(hpAmount: number) {
     this.hp -= Math.min(hpAmount, this.hp);
   }
 }
@@ -126,7 +126,7 @@ class Prey extends Animal implements Edible {
 class Plant implements Edible {
   constructor(public hp: number) {}
 
-  beEaten(hpAmount: number) {
+  public beEaten(hpAmount: number) {
     const eatenHP = Math.min(0, hpAmount);
     this.hp -= eatenHP;
     return eatenHP;
