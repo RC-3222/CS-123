@@ -1,0 +1,1 @@
+const gcd = (a, b) => a === 0 ? b : gcd((b % a), a);

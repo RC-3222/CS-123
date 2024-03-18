@@ -1,0 +1,1 @@
+const recSum = (arr) => arr.length === 0 ? 0 : arr.shift() + sum(arr)
