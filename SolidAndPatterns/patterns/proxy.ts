@@ -1,3 +1,6 @@
+/*
+Паттерн Proxy
+*/
 namespace ProxyPattern {
   let targetAvailable = false;
 
@@ -11,12 +14,12 @@ namespace ProxyPattern {
       this.target = target;
     }
 
-    setValue(value: number) {
+    public setValue(value: number) {
       if (!targetAvailable) throw new Error("Can't access the target");
       return this.target.setValue(value);
     }
 
-    getValue() {
+    public getValue() {
       if (!targetAvailable) throw new Error("Can't access the target");
       return this.target.getValue();
     }
@@ -27,11 +30,11 @@ namespace ProxyPattern {
       this.value = value;
     }
 
-    getValue() {
+    public getValue() {
       return this.value;
     }
 
-    setValue(value: number) {
+    public setValue(value: number) {
       this.value = value;
     }
   }

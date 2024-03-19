@@ -1,6 +1,9 @@
+/*
+Паттерн Observer
+*/
 namespace ObserverPattern {
   class DataView {
-    update(context: number) {
+    public update(context: number) {
       console.log(context);
     }
   }

@@ -1,3 +1,7 @@
+/*
+Паттерн Abstract Factory
+*/
+
 namespace AbstractFactoryPattern {
   interface Target {
     takeDamage(value: number): void;
@@ -17,16 +21,16 @@ namespace AbstractFactoryPattern {
   }
 
   class ChineseZoo implements Zoo {
-    getDangerousAnimal() {
+    public getDangerousAnimal() {
       return new DesertRainFrog();
     }
-    getExcitingAnimal() {
+    public getExcitingAnimal() {
       return new Panda();
     }
   }
 
   class DesertRainFrog implements DangerousAnimal {
-    attack(target: Target) {
+    public attack(target: Target) {
       console.log("** Sonorous warcry of a very angry frog **");
       target.takeDamage(666);
       console.log("*** (Ferocious) ***");
@@ -34,28 +38,28 @@ namespace AbstractFactoryPattern {
   }
 
   class Panda implements ExcitingAnimal {
-    doSomethingExciting() {
+    public doSomethingExciting() {
       console.log("** Bamboo-eating sounds **");
     }
   }
 
   class PolishZoo implements Zoo {
-    getDangerousAnimal() {
+    public getDangerousAnimal() {
       return new KurwaBober();
     }
-    getExcitingAnimal() {
+    public getExcitingAnimal() {
       return new Bober();
     }
   }
 
   class Bober implements ExcitingAnimal {
-    doSomethingExciting() {
+    public doSomethingExciting() {
       console.log("** sounds of ultimate existance **");
     }
   }
 
   class KurwaBober extends Bober implements DangerousAnimal {
-    attack(target: Target) {
+    public attack(target: Target) {
       console.log("YA NIE KURWA YA PIERDOLE!!!!111".toUpperCase());
       target.takeDamage(9001);
     }

@@ -12,7 +12,7 @@ const dfsRecursive = (graph, start) => {
   const recursiveDfsHelper = (vert) => {
     result.push(vert)
 
-    if (graph[vert]?.length > 0) {
+    if (graph[vert]?.length) {
       for (const neighbor of graph[vert]) {
         if (!result.includes(neighbor)) recursiveDfsHelper(neighbor)
       }
@@ -30,7 +30,7 @@ const dfs = (graph, start) => {
   
     needVisit.push(start);
   
-    while(needVisit.length !== 0) {
+    while(needVisit.length) {
       let node = needVisit.shift();
 
       if(!result.includes(node)){

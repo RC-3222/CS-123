@@ -55,7 +55,7 @@ const getOptimalSolution = (stations, initialStatesNeeded) => {
             }
         }
         
-        finalStations.add(bestStation)
+        if (bestStation) finalStations.add(bestStation)
         statesNeeded = setDifference(statesNeeded, statesCovered)
 
         // safeguard for impossible full coverage (pt. 2)

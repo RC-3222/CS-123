@@ -1,3 +1,7 @@
+/*
+Паттерн Factory Method
+*/
+
 namespace FactoryMethodPattern {
   interface Factory {
     name: string;
@@ -13,7 +17,7 @@ namespace FactoryMethodPattern {
     constructor(public name: string) {
       this.name = name;
     }
-    Produce(name: string) {
+    public Produce(name: string) {
       console.log(`A car produced at ${this.name}`);
       return new Car(name);
     }
@@ -23,7 +27,7 @@ namespace FactoryMethodPattern {
     constructor(public name: string) {
       this.name = name;
     }
-    Produce(name: string) {
+    public Produce(name: string) {
       console.log(`An IFV produced at ${this.name}`);
       return new IFV(name);
     }
@@ -33,7 +37,7 @@ namespace FactoryMethodPattern {
     constructor(public name: string) {
       this.name = name;
     }
-    move() {
+    public move() {
       console.log("Vvrrrr..");
     }
   }
@@ -42,7 +46,7 @@ namespace FactoryMethodPattern {
     constructor(public name: string) {
       this.name = name;
     }
-    move() {
+    public move() {
       console.log("BEEEP!!!11");
     }
   }

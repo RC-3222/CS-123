@@ -1,7 +1,13 @@
+/*
+Паттерн Facade
+
+ImageConverter - "фасад" для небольшой системы классов с не очень удобным интерфейсом
+*/
+
 namespace FacadePattern {
   abstract class ImageRepainter {
     constructor() {}
-    public abstract repaint(repaintableImg: RepaintableFormat);
+    public abstract repaint(repaintableImg: RepaintableFormat): RepaintableFormat;
   }
 
   class ImageRepainter16Bit extends ImageRepainter {

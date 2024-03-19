@@ -14,18 +14,18 @@ const checkIfSeller = (name) => {
 }
 
 const search = (name) => {
-    const searchQueue = [graph[name]];
+    const searchQueue = [...graph[name]];
     const searched = [];
 
     while (searchQueue.length) {
-        let person = searchQueue.shift();
+        const person = searchQueue.shift();
 
-        if (searched.indexOf(person) === -1) {
+        if (!searched.includes(person)) {
             if (checkIfSeller(person)) {
                 console.log(`${person} is a mango seller!`);
                 return true;
             } else {
-                searchQueue.push(graph[person]);
+                searchQueue.push(...graph[person]);
                 searched.push(person);
             }
         }
@@ -33,3 +33,5 @@ const search = (name) => {
 
     return false;
 }
+
+console.log(search("you"))
